@@ -201,13 +201,13 @@ function cecfc_CreateEyeCatchPage()
 
       //出力用の配列を用意
       // https://kinocolog.com/javascript_canvas_br/
-      var aryRow = [];
+      let aryRow = [];
       aryRow[0] = '';
-      var row_cnt = 0;
+      let row_cnt = 0;
 
       //入力1文字毎にループ　改行コードもしくは折り返しで配列の添え字を足す
-      for (var i = 0; i < inputTextArray.length; i++) {
-        var text = inputTextArray[i];
+      for (let i = 0; i < inputTextArray.length; i++) {
+        let text = inputTextArray[i];
         if (aryRow[row_cnt].length >= cecfc_oneLineTextLength) {
           row_cnt++;
           aryRow[row_cnt] = '';
@@ -221,9 +221,9 @@ function cecfc_CreateEyeCatchPage()
       }
 
       //文字の表示　y軸とx軸をループする
-      for (var i = 0; i < aryRow.length; i++) {
+      for (let i = 0; i < aryRow.length; i++) {
         aryStr = aryRow[i].split('');
-        for (var j = 0; j < aryStr.length; j++) {
+        for (let j = 0; j < aryStr.length; j++) {
           cecfc_ctxPreview.fillText(aryStr[j], (j * cecfc_fontSize) + cecfc_leftMargin, (i * cecfc_fontSize * cecfc_lineHeight) + cecfc_topMargin);
         }
       }
@@ -307,10 +307,10 @@ function cecfc_DisplayCreateEyeCatch()
 
       const inputTextArray = title.split('');
 
-      var rowText = '';
-      var rowArray = [];
+      let rowText = '';
+      let rowArray = [];
 
-      for (var i = 0; i < inputTextArray.length; i++) {
+      for (let i = 0; i < inputTextArray.length; i++) {
         const metrics = cecfc_ctxGround.measureText(rowText + inputTextArray[i]);
 
         if (metrics.width > cecfc_oneLineTextLength * cecfc_fontSize) {
@@ -323,7 +323,7 @@ function cecfc_DisplayCreateEyeCatch()
 
       rowArray.push(rowText);
 
-      for (var i = 0; i < rowArray.length; i++) {
+      for (let i = 0; i < rowArray.length; i++) {
         const text = rowArray[i];
         const y = (i * cecfc_fontSize * cecfc_lineHeight) + cecfc_topMargin;
 
