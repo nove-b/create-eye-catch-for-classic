@@ -33,3 +33,6 @@ Stable tag: 1.0.0
 バグやソースコードで気になった点・お問合せがあれば、[Issue](https://github.com/nove-b/create-eye-catch-for-classic/issues)・[Pull request](https://github.com/nove-b/create-eye-catch-for-classic/pulls)からお願いします。
 
 どんなことでも歓迎します🙇‍♀️
+
+[GitHub Link](https://github.com/nove-b/create-eye-catch-for-classic)
+
