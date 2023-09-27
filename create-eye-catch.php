@@ -333,7 +333,7 @@ function cecfc_DisplayCreateEyeCatch()
     };
 
     cecfc_saveEyeCatch.addEventListener('click', () => {
-      var base64 = canvasBackground.toDataURL("image/jpeg");
+      const base64 = canvasBackground.toDataURL("image/jpeg");
       cecfc_saveEyeCatch.href = base64;
       cecfc_saveEyeCatch.download = `${new Date().getTime()}.jpg`;
       //  altに使用するため、titleをcopy
