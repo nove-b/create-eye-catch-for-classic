@@ -9,7 +9,7 @@ Stable tag: 1.0.0
 
 # Create Eye Catch For Classic
 
-![Create Eye Catch For Classic](/.wordpress-org/banner-772x250.png)
+![Create Eye Catch For Classic](https://github.com/nove-b/create-eye-catch-for-classic/blob/main/.wordpress-org/banner-772x250.png)
 
 > [!WARNING]
 > このプラグインはクラシックエディタでのみ使用できます。
