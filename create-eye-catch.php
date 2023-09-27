@@ -4,7 +4,7 @@ Plugin Name: Create Eye Catch For Classic
 Description: Classicエディタでアイキャッチ画像を簡単に生成することができます。
 Author: nove-b
 Author URI: https://github.com/nove-b
-Version: 1.2
+Version: 1.3
 */
 
 // phpファイルのURLに直接アクセスされても中身見られないようにする
@@ -322,7 +322,8 @@ function cecfc_DisplayCreateEyeCatch()
 
 
       const lastLine = rowArray[cecfc_totalLine - 1]
-      if(lastLine) {
+      const lastLinveOver = rowArray[cecfc_totalLine]
+      if(lastLine && lastLinveOver) {
         rowArray[cecfc_totalLine - 1] = replaceLastChar(lastLine, '...');
       }
       for (let i = 0; i < rowArray.length; i++) {
