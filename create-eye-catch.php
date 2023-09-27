@@ -4,7 +4,7 @@ Plugin Name: Create Eye Catch For Classic
 Description: Classicエディタでアイキャッチ画像を簡単に生成することができます。
 Author: nove-b
 Author URI: https://github.com/nove-b
-Version: 1.0
+Version: 1.1
 */
 
 // phpファイルのURLに直接アクセスされても中身見られないようにする
@@ -294,10 +294,7 @@ function cecfc_DisplayCreateEyeCatch()
     // 入力されたタイトルを描画する関数
     const cecfc_drawFont = (el) => {
       const cecfc_ctxGround = cecfc_canvasGround.getContext('2d');
-      let title = el.substring(0, cecfc_oneLineTextLength * cecfc_totalLine);
-      if (title.length < el.length) {
-        title = title.substr(0, title.length - 1) + '…';
-      }
+      let title = el
 
       // フォントサイズの指定（半角、全角の幅を考慮）
       cecfc_ctxGround.font = `bold ${cecfc_fontSize}px 'Roboto', 'Noto Sans JP'`;
@@ -323,12 +320,18 @@ function cecfc_DisplayCreateEyeCatch()
 
       rowArray.push(rowText);
 
-      for (let i = 0; i < rowArray.length; i++) {
-        const text = rowArray[i];
-        const y = (i * cecfc_fontSize * cecfc_lineHeight) + cecfc_topMargin;
 
-        // テキストの描画
-        cecfc_ctxGround.fillText(text, cecfc_leftMargin, y);
+      const lastLine = rowArray[cecfc_totalLine - 1]
+      rowArray[cecfc_totalLine - 1] = replaceLastChar(lastLine, '...');
+      for (let i = 0; i < rowArray.length; i++) {
+        if (i < cecfc_totalLine) {
+
+          const text = rowArray[i];
+          const y = (i * cecfc_fontSize * cecfc_lineHeight) + cecfc_topMargin;
+
+          // テキストの描画
+          cecfc_ctxGround.fillText(text, cecfc_leftMargin, y);
+        }
       }
     };
 
@@ -340,6 +343,21 @@ function cecfc_DisplayCreateEyeCatch()
       title.select();
       document.execCommand("copy");
     })
+
+
+    function replaceLastChar(inputString, newChar) {
+      if (inputString.length > 0) {
+        // 最後の文字を取得
+        const lastChar = inputString.charAt(inputString.length - 1);
+
+        // 最後の文字を置換したい文字に変更
+        const modifiedString = inputString.slice(0, -1) + newChar;
+
+        return modifiedString;
+      } else {
+        return inputString; // 空文字列の場合は変更なし
+      }
+    }
   </script>
 <?php
 }
